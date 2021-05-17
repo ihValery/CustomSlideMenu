@@ -31,6 +31,8 @@ struct TabButton: View {
             .foregroundColor(selectedTab == title ? .purpleTheme : .white)
             .padding(.vertical, 12)
             .padding(.horizontal, 10)
+            //max Frame
+            .frame(maxWidth: getRect().width - 170, alignment: .leading)
             .background(
                 
                 //hero Animation
@@ -39,6 +41,7 @@ struct TabButton: View {
                         Color.white
                             .opacity(selectedTab == title ? 1 : 0)
                             .clipShape(CustomCorners(corner: [.topRight, .bottomRight], radius: 12))
+                            //Магия )))
                             .matchedGeometryEffect(id: "TAB", in: animation)
                     }
                 }
