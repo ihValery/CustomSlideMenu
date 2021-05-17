@@ -41,11 +41,29 @@ struct HomePage: View {
     
     var body: some View {
         NavigationView {
-            Text("Home")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .foregroundColor(.primary)
+            ScrollView(getRect().height < 750 ? .vertical : .init(), showsIndicators: false) {
+                VStack(alignment: .center, spacing: 20) {
+                    Image("profile")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: getRect().width - 50, height: 500)
+                        .cornerRadius(12)
+                        .shadow(color: .black.opacity(0.4), radius: 4, x: 5, y: 5)
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("Monika Deep")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                        Text("Very beautiful girl, youtuber, sportswoman, junior teacher ...")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.gray)
+                    }
+                }
+                .padding()
                 .navigationTitle("Home")
+            }
         }
     }
 }

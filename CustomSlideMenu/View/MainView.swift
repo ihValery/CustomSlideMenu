@@ -18,27 +18,29 @@ struct MainView: View {
                 .ignoresSafeArea()
             
             //Боковое меню
-            SideMenu(selectedTab: $selectedTab)
+            ScrollView(getRect().height < 750 ? .vertical : .init(), showsIndicators: false) {
+                SideMenu(selectedTab: $selectedTab)
+            }
             
             ZStack {
                 
                 //two background cards
                 Color.white
                     .opacity(0.6)
-                    .cornerRadius(showMenu ? 15 : 40)
+                    .cornerRadius(showMenu ? 15 : 0)
                     .shadow(color: .black.opacity(0.1), radius: 5, x: -5, y: 0)
                     .offset(x: showMenu ? -25 : 0)
                     .padding(.vertical, 30)
                 
                 Color.white
                     .opacity(0.4)
-                    .cornerRadius(showMenu ? 15 : 40)
+                    .cornerRadius(showMenu ? 15 : 0)
                     .shadow(color: .black.opacity(0.1), radius: 5, x: -5, y: 0)
                     .offset(x: showMenu ? -50 : 0)
                     .padding(.vertical, 60)
                 
                 Home(selectedTab: $selectedTab)
-                    .cornerRadius(showMenu ? 15 : 40)
+                    .cornerRadius(showMenu ? 15 : 0)
                 
             }
             //Scaling and moving the view
