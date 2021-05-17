@@ -30,11 +30,19 @@ struct TabButton: View {
             }
             .foregroundColor(selectedTab == title ? .purpleTheme : .white)
             .padding(.vertical, 12)
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 10)
             .background(
-                Color.white
-                    .opacity(selectedTab == title ? 1 : 0)
-                    .clipShape(CustomCorners(corner: [.topRight, .bottomRight], radius: 12)))
+                
+                //hero Animation
+                ZStack {
+                    if selectedTab == title {
+                        Color.white
+                            .opacity(selectedTab == title ? 1 : 0)
+                            .clipShape(CustomCorners(corner: [.topRight, .bottomRight], radius: 12))
+                            .matchedGeometryEffect(id: "TAB", in: animation)
+                    }
+                }
+            )
         }
     }
 }
