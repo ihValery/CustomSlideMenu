@@ -15,6 +15,9 @@
 		803D661726526B9300E178C3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D661626526B9300E178C3 /* Color.swift */; };
 		803D66192652719E00E178C3 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D66182652719E00E178C3 /* TabButton.swift */; };
 		803D661B26527F8000E178C3 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D661A26527F8000E178C3 /* CustomCorners.swift */; };
+		803D661D26528DC100E178C3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D661C26528DC100E178C3 /* View.swift */; };
+		803D661F26528E3D00E178C3 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D661E26528E3D00E178C3 /* SideMenu.swift */; };
+		803D66212652900300E178C3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803D66202652900300E178C3 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		803D661626526B9300E178C3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		803D66182652719E00E178C3 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		803D661A26527F8000E178C3 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
+		803D661C26528DC100E178C3 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		803D661E26528E3D00E178C3 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		803D66202652900300E178C3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,8 @@
 				803D66042652689700E178C3 /* ContentView.swift */,
 				803D66132652695800E178C3 /* MainView.swift */,
 				803D66182652719E00E178C3 /* TabButton.swift */,
+				803D661E26528E3D00E178C3 /* SideMenu.swift */,
+				803D66202652900300E178C3 /* Home.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -101,6 +109,7 @@
 			children = (
 				803D661626526B9300E178C3 /* Color.swift */,
 				803D661A26527F8000E178C3 /* CustomCorners.swift */,
+				803D661C26528DC100E178C3 /* View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -177,8 +186,11 @@
 				803D66052652689700E178C3 /* ContentView.swift in Sources */,
 				803D661B26527F8000E178C3 /* CustomCorners.swift in Sources */,
 				803D661726526B9300E178C3 /* Color.swift in Sources */,
+				803D661F26528E3D00E178C3 /* SideMenu.swift in Sources */,
+				803D66212652900300E178C3 /* Home.swift in Sources */,
 				803D66142652695800E178C3 /* MainView.swift in Sources */,
 				803D66192652719E00E178C3 /* TabButton.swift in Sources */,
+				803D661D26528DC100E178C3 /* View.swift in Sources */,
 				803D66032652689700E178C3 /* CustomSlideMenuApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,8 +10,7 @@ import SwiftUI
 struct MainView: View {
     //Selected tab
     @State var selectedTab = "Home"
-    //Animation namespace
-    @Namespace var animation
+    @State var showMenu = false
     
     var body: some View {
         ZStack {
@@ -19,48 +18,62 @@ struct MainView: View {
                 .ignoresSafeArea()
             
             //Боковое меню
-            VStack(alignment: .leading, spacing: 15) {
+            SideMenu(selectedTab: $selectedTab)
+            
+            ZStack {
                 
-                //Profile
-                Image("profile2")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 70, height: 70, alignment: .top)
-                    .cornerRadius(10)
-                    
-                //Padding top for Top Close Button
-                    .padding(.top, 50)
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Monika Deep")
-                        .font(.title)
-                        .fontWeight(.heavy)
-                    
-                    Button(action: {}) {
-                        Text("View Profile")
-                            .fontWeight(.semibold)
-                            .opacity(0.7)
-                    }
-                }
-                .foregroundColor(.white)
+                //two background cards
+                Color.white
+                    .opacity(0.6)
+                    .cornerRadius(showMenu ? 15 : 40)
+                    .shadow(color: .black.opacity(0.1), radius: 5, x: -5, y: 0)
+                    .offset(x: showMenu ? -25 : 0)
+                    .padding(.vertical, 30)
                 
-                //tab Buttons
-                VStack(alignment: .leading, spacing: 10) {
-                    TabButton(image: "house", title: "Home", selectedTab: $selectedTab, animation: animation)
-                    
-                    TabButton(image: "clock.arrow.circlepath", title: "History", selectedTab: $selectedTab, animation: animation)
-                    
-                    TabButton(image: "bell.badge", title: "Notification", selectedTab: $selectedTab, animation: animation)
-                    
-                    TabButton(image: "gearshape", title: "Settings", selectedTab: $selectedTab, animation: animation)
-                    
-                    TabButton(image: "questionmark.circle", title: "Help", selectedTab: $selectedTab, animation: animation)
-                }
-                .padding(.leading, -15)
-                .padding(.top, 50)
+                Color.white
+                    .opacity(0.4)
+                    .cornerRadius(showMenu ? 15 : 40)
+                    .shadow(color: .black.opacity(0.1), radius: 5, x: -5, y: 0)
+                    .offset(x: showMenu ? -50 : 0)
+                    .padding(.vertical, 60)
+                
+                Home(selectedTab: $selectedTab)
+                    .cornerRadius(showMenu ? 15 : 40)
                 
             }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            //Scaling and moving the view
+            .scaleEffect(showMenu ? 0.84 : 1)
+            .offset(x: showMenu ? getRect().width - 120 : 0)
+            .ignoresSafeArea()
+            .overlay(
+                Button(action: {
+                    withAnimation(.spring()) {
+                        showMenu.toggle()
+                    }
+                }, label: {
+                    //animate Drawing Button
+                    VStack(spacing: 5) {
+                        Capsule()
+                            .fill(showMenu ? Color.white : Color.black)
+                            .frame(width: 30, height: 3)
+                        //Rotating
+                            .rotationEffect(.init(degrees: showMenu ? -45 : 0))
+                            .offset(x: showMenu ? 2.5 : 0, y: showMenu ? 9 : 0)
+                        VStack(spacing: 5) {
+                            Capsule()
+                                .fill(showMenu ? Color.white : Color.black)
+                                .frame(width: 30, height: 3)
+                            //Moving Up when clicked
+                            Capsule()
+                                .fill(showMenu ? Color.white : Color.black)
+                                .frame(width: 30, height: 3)
+                                .offset(y: showMenu ? -8 : 0)
+                        }
+                        .rotationEffect(.init(degrees: showMenu ? 45 : 0))
+                    }
+                })
+                .padding()
+                , alignment: .topLeading)
         }
     }
 }
